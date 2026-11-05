@@ -123,6 +123,16 @@ jobs:
           cd "$APP_DIR"
           npx cap sync android
 
+       
+      - name: Fix duplicate launcher resources
+        run: |
+          cd "$APP_DIR"
+          rm -f android/app/src/main/res/values/ic_launcher_background.xml
+          rm -f android/app/src/main/res/values/ic_launcher_foreground.xml
+          echo "Pemeriksaan resource launcher:"
+          grep -R "ic_launcher_background" android/app/src/main/res || true
+          
+
       - name: Verify native plugins
         run: |
           cd "$APP_DIR"
