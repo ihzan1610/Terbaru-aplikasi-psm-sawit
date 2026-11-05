@@ -1,7 +1,9 @@
-
+2
 name: Build APK PSM SAWIT
 
-'on':
+on:
+  push:
+    branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
